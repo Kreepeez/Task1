@@ -33,21 +33,26 @@ namespace Task1
                         id++;
                 } 
             }
-                
-            if(mapArray != null)
+
+            if (mapArray != null)
             {
                 return mapArray;
             }
-            else Console.WriteLine("Struct is empty.");
-
-            return null;
+            else throw new ArgumentNullException("Object null");
             
         }
 
         public Dictionary<int, int> GetMapById(Dictionary<int, int>[] mapArr, int id)
         {
-            var newMap = mapArr[id];
-            return newMap;
+            if (mapArr != null)
+            {
+                var newMap = mapArr[id];
+                return newMap;
+            }
+            else
+            {
+                throw new ArgumentNullException("Object null");
+            }        
         }
     }
 }
